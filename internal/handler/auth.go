@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 // POST /api/auth/request-code {"phone":"+79..."}
@@ -25,8 +25,16 @@ func (d Deps) requestCode(w http.ResponseWriter, r *http.Request) {
 
 	p, err := d.Repo.GetParticipantByPhone(r.Context(), phone)
 	if errors.Is(err, repository.ErrNotFound) {
-		writeErr(w, http.StatusNotFound, "Номер не найден среди участников пилота. Обратитесь к организаторам.")
-		return
+		if d.Cfg.IsDev() {
+			p, err = d.Repo.EnsureParticipantForPhone(r.Context(), phone)
+		} else {
+			if d.telegramBotUsername() == "" {
+				writeErr(w, http.StatusServiceUnavailable, "Регистрация недоступна: Telegram-бот сервиса не настроен.")
+			} else {
+				writeErr(w, http.StatusNotFound, "Номер не зарегистрирован. Поделитесь своим контактом с ботом @"+d.telegramBotUsername()+".")
+			}
+			return
+		}
 	}
 	if err != nil {
 		d.Log.Error("поиск участника", "err", err)
@@ -47,7 +55,7 @@ func (d Deps) requestCode(w http.ResponseWriter, r *http.Request) {
 
 	sentToTelegram := false
 	if p.TelegramChatID != nil && d.TG != nil {
-		if err := d.TG.SendTo(*p.TelegramChatID, "🔐 Код входа в Альфа.Пульс: <b>"+code+"</b>\nДействует 5 минут."); err != nil {
+		if err := d.TG.SendTo(*p.TelegramChatID, "🔐 Код входа в Бизнес.Пульс: <b>"+code+"</b>\nДействует 5 минут."); err != nil {
 			d.Log.Warn("не удалось отправить OTP в Telegram", "err", err)
 		} else {
 			sentToTelegram = true

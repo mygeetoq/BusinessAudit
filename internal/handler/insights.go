@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"alfa-pulse/internal/auth"
+	"business-pulse/internal/auth"
 )
 
 // GET /api/insights — расширенная аналитика (сценарии, календарь, бенчмарк…).
@@ -48,7 +48,7 @@ func (d Deps) exportCSV(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	filename := fmt.Sprintf("alfa-pulse_%s_%s.csv", from.Format("2006-01-02"), to.Format("2006-01-02"))
+	filename := fmt.Sprintf("business-pulse_%s_%s.csv", from.Format("2006-01-02"), to.Format("2006-01-02"))
 	w.Header().Set("Content-Type", "text/csv; charset=utf-8")
 	w.Header().Set("Content-Disposition", `attachment; filename="`+filename+`"`)
 	_, _ = w.Write([]byte{0xEF, 0xBB, 0xBF}) // BOM: Excel корректно откроет кириллицу

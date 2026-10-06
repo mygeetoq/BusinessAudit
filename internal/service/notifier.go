@@ -9,9 +9,9 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/push"
-	"alfa-pulse/internal/repository"
+	"business-pulse/internal/models"
+	"business-pulse/internal/push"
+	"business-pulse/internal/repository"
 )
 
 // TelegramSender — отправка сообщений в Telegram (реализует internal/bot.Bot).
@@ -54,7 +54,7 @@ func (n *Notifier) NotifyIfCritical(ctx context.Context, p *models.Participant, 
 		return
 	}
 
-	title := "Альфа.Пульс: бизнесу нужно внимание"
+	title := "Бизнес.Пульс: бизнесу нужно внимание"
 	body := fmt.Sprintf("Индекс здоровья упал до %d из 100.", res.HealthIndex)
 	if res.CashGapDate != nil {
 		body += fmt.Sprintf(" Возможен кассовый разрыв %s — не хватит около %s.",

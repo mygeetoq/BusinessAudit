@@ -10,10 +10,10 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 // Раздел «Мои расходы»: предприниматель сам ведёт регулярные и разовые траты

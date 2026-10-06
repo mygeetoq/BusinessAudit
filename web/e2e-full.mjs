@@ -1,4 +1,4 @@
-// Полный E2E-прогон «Альфа.Пульс» (headless Chrome, puppeteer-core):
+// Полный E2E-прогон «Бизнес.Пульс» (headless Chrome, puppeteer-core):
 // логин B → дашборд → советы (Сделано) → аналитика (пресеты+таблица) →
 // выход → логин A (контрольная группа) → админка.
 // Запуск: cd web && node e2e-full.mjs
@@ -6,8 +6,7 @@ import puppeteer from "puppeteer-core";
 import { mkdirSync } from "node:fs";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:8080";
-const OUT =
-  "/private/tmp/claude-501/-Users-dimortix--------------------/ba639b69-1c4e-4126-ba83-3ca90690a049/scratchpad/shots-agent";
+const OUT = process.argv[2] ?? "e2e-full-shots";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 mkdirSync(OUT, { recursive: true });
@@ -346,7 +345,7 @@ await step("6-admin", async () => {
   await page.waitForSelector('input[placeholder="X-Admin-Token"]', {
     timeout: 10000,
   });
-  await page.type('input[placeholder="X-Admin-Token"]', "alfa-admin");
+  await page.type('input[placeholder="X-Admin-Token"]', "pulse-admin");
   await clickByText("button", "Подключиться");
   await page.waitForSelector("table tbody tr", { timeout: 15000 });
   await sleep(600);

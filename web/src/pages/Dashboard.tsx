@@ -83,7 +83,7 @@ export default function Dashboard() {
             <FlaskConical className="size-4.5" />
           </div>
           <p className="text-sm text-ink-2">
-            Вы в <b>контрольной группе</b> пилота: доступна статистика без
+            Вы в <b>контрольной группе</b>: доступна статистика без
             прогнозов и советов.
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function Dashboard() {
         <EmptyState
           icon={<CloudOff className="size-6" />}
           title="Прогноз ещё не рассчитан"
-          text="Ждём первых данных от банка. Обычно это занимает несколько минут после подключения — загляните чуть позже."
+          text="Данных пока нет. Подключите бизнес-счёт в разделе «Мой счёт» и загрузите CSV с операциями."
         />
         {stats}
       </div>

@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"alfa-pulse/internal/auth"
+	"business-pulse/internal/auth"
 )
 
 // GET /api/advice?status=active|done|all

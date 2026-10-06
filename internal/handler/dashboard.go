@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/service"
 )
 
 // GET /api/dashboard — главный экран: ИЖБ, прогноз, разрыв, факт за неделю.
@@ -27,7 +27,7 @@ func (d Deps) dashboard(w http.ResponseWriter, r *http.Request) {
 		},
 		"has_forecast": false,
 		// для карточки привязки Telegram в UI
-		"telegram_bot":    d.BotUsername,
+		"telegram_bot":    d.telegramBotUsername(),
 		"telegram_linked": p.TelegramChatID != nil,
 	}
 

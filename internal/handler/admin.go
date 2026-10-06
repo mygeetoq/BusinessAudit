@@ -11,7 +11,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
 
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/service"
 )
 
 // adminOnly — сверка X-Admin-Token с ADMIN_TOKEN (константное время) +

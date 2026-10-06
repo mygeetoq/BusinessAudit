@@ -1,10 +1,11 @@
-import { Activity, BarChart3, Bot, Lightbulb, LogOut, Wallet } from "lucide-react";
+import { Activity, BarChart3, Bot, Landmark, Lightbulb, LogOut, Wallet } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { loadUser, logout } from "../api/client";
 
 const tabs = [
   { to: "/", label: "Пульс", icon: Activity, bOnly: false },
   { to: "/analytics", label: "Аналитика", icon: BarChart3, bOnly: false },
+  { to: "/bank", label: "Данные", icon: Landmark, bOnly: false },
   { to: "/expenses", label: "Расходы", icon: Wallet, bOnly: true },
   { to: "/advice", label: "Советы", icon: Lightbulb, bOnly: true },
   { to: "/advisor", label: "Советник", icon: Bot, bOnly: true },
@@ -24,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Activity className="size-5 text-white" strokeWidth={2.5} />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-bold leading-tight">Альфа.Пульс</div>
+            <div className="text-sm font-bold leading-tight">Бизнес.Пульс</div>
             <div className="truncate text-xs text-ink-3">
               {user?.name || user?.phone || "пульс вашего бизнеса"}
             </div>

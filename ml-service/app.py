@@ -1,4 +1,4 @@
-"""Альфа.Пульс: ML-сервис прогнозирования выручки (Prophet).
+"""Бизнес.Пульс: ML-сервис прогнозирования выручки (Prophet).
 
 Контракт (ТЗ, п. 4.1):
     POST /forecast {"series":[{"ds":"2026-07-01","y":15000.5}, ...], "horizon": 14}
@@ -23,7 +23,7 @@ logging.getLogger("prophet").setLevel(logging.WARNING)
 
 MIN_POINTS = 14  # меньше двух недель — сезонность не выучить
 
-app = FastAPI(title="alfa-pulse-ml", version="1.0.0")
+app = FastAPI(title="business-pulse-ml", version="1.0.0")
 
 
 class SeriesPoint(BaseModel):

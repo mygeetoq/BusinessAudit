@@ -7,14 +7,16 @@ import (
 	"errors"
 	"fmt"
 	"log/slog"
+	"net/http"
 	"strings"
+	"time"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 type Bot struct {
@@ -28,7 +30,8 @@ func New(token string, repo *repository.Repository, log *slog.Logger) (*Bot, err
 	if token == "" {
 		return nil, nil
 	}
-	api, err := tgbotapi.NewBotAPI(token)
+	api, err := tgbotapi.NewBotAPIWithClient(token, tgbotapi.APIEndpoint,
+		&http.Client{Timeout: 45 * time.Second})
 	if err != nil {
 		return nil, fmt.Errorf("подключение к Telegram: %w", err)
 	}
@@ -56,21 +59,27 @@ func (b *Bot) SendTo(chatID int64, text string) error {
 func (b *Bot) Run(ctx context.Context) {
 	cfg := tgbotapi.NewUpdate(0)
 	cfg.Timeout = 30
-	updates := b.api.GetUpdatesChan(cfg)
-
-	for {
-		select {
-		case <-ctx.Done():
-			b.api.StopReceivingUpdates()
-			return
-		case upd, ok := <-updates:
-			if !ok {
+	for ctx.Err() == nil {
+		updates, err := b.api.GetUpdates(cfg)
+		if err != nil {
+			b.log.Warn("telegram: ошибка получения сообщений", "err", strings.ReplaceAll(err.Error(), b.api.Token, "[redacted]"))
+			select {
+			case <-ctx.Done():
 				return
-			}
-			if upd.Message == nil {
+			case <-time.After(3 * time.Second):
 				continue
 			}
-			b.handleMessage(ctx, upd.Message)
+		}
+		for _, upd := range updates {
+			if upd.UpdateID >= cfg.Offset {
+				cfg.Offset = upd.UpdateID + 1
+			}
+			if ctx.Err() != nil {
+				return
+			}
+			if upd.Message != nil {
+				b.handleMessage(ctx, upd.Message)
+			}
 		}
 	}
 }
@@ -96,7 +105,7 @@ func (b *Bot) handleCommand(ctx context.Context, m *tgbotapi.Message) {
 		b.handleAdvice(ctx, m)
 	case "help":
 		b.reply(m.Chat.ID,
-			"<b>Альфа.Пульс</b> — пульс вашего бизнеса.\n\n"+
+			"<b>Бизнес.Пульс</b> — пульс вашего бизнеса.\n\n"+
 				"/status — индекс здоровья, выручка и прогноз\n"+
 				"/advice — актуальные советы\n"+
 				"/start — привязать номер телефона\n\n"+
@@ -108,8 +117,8 @@ func (b *Bot) handleCommand(ctx context.Context, m *tgbotapi.Message) {
 
 func (b *Bot) handleStart(m *tgbotapi.Message) {
 	msg := tgbotapi.NewMessage(m.Chat.ID,
-		"Привет! Я «Альфа.Пульс» — слежу за здоровьем вашего бизнеса.\n\n"+
-			"Нажмите кнопку ниже, чтобы привязать номер телефона участника пилота.")
+		"Привет! Я «Бизнес.Пульс» — слежу за здоровьем вашего бизнеса.\n\n"+
+			"Нажмите кнопку ниже, чтобы создать профиль или привязать свой номер телефона.")
 	btn := tgbotapi.NewKeyboardButtonContact("📱 Поделиться номером")
 	kb := tgbotapi.NewReplyKeyboard([]tgbotapi.KeyboardButton{btn})
 	kb.OneTimeKeyboard = true
@@ -121,6 +130,10 @@ func (b *Bot) handleStart(m *tgbotapi.Message) {
 }
 
 func (b *Bot) handleContact(ctx context.Context, m *tgbotapi.Message) {
+	if m.From == nil || m.Contact.UserID == 0 || m.Contact.UserID != m.From.ID {
+		b.reply(m.Chat.ID, "Поделитесь своим номером через кнопку бота, а не отправляйте чужой контакт.")
+		return
+	}
 	phone, err := service.NormalizePhone(m.Contact.PhoneNumber)
 	if err != nil {
 		b.reply(m.Chat.ID, "Не удалось разобрать номер телефона.")
@@ -128,8 +141,7 @@ func (b *Bot) handleContact(ctx context.Context, m *tgbotapi.Message) {
 	}
 	p, err := b.repo.GetParticipantByPhone(ctx, phone)
 	if errors.Is(err, repository.ErrNotFound) {
-		b.reply(m.Chat.ID, "Номер "+phone+" не найден среди участников пилота. Обратитесь к организаторам.")
-		return
+		p, err = b.repo.EnsureParticipantForPhone(ctx, phone)
 	}
 	if err != nil {
 		b.log.Warn("telegram: ошибка поиска участника", "err", err)

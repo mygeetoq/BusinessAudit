@@ -15,15 +15,15 @@ export default defineConfig({
       registerType: "autoUpdate",
       injectRegister: "auto",
       manifest: {
-        name: "Альфа.Пульс — пульс вашего бизнеса",
-        short_name: "Альфа.Пульс",
+        name: "Бизнес.Пульс — пульс вашего бизнеса",
+        short_name: "Бизнес.Пульс",
         description:
           "Индекс здоровья бизнеса, прогноз выручки и советы — прямо в телефоне",
         lang: "ru",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
-        theme_color: "#EF3124",
+        theme_color: "#1763B8",
         icons: [
           { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
           { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },

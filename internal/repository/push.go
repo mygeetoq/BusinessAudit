@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 func (r *Repository) UpsertPushSubscription(ctx context.Context, s models.PushSubscription) error {

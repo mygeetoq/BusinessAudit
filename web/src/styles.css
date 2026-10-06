@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-/* Тема «Альфа»: фирменный красный, тёмно-синий текст, светло-серые поверхности.
+/* Тема «Бизнес.Пульс»: акцентный синий, тёмно-синий текст, светло-серые поверхности.
    Цвета графиков и статусов прошли валидатор палитры (CVD/контраст). */
 @theme {
-  --color-brand: #ef3124;
-  --color-brand-dark: #cf2a1f;
-  --color-brand-soft: #fdeae8;
+  --color-brand: #1763b8;
+  --color-brand-dark: #104e94;
+  --color-brand-soft: #e8f1fb;
 
   --color-ink: #101828;
   --color-ink-2: #475467;
@@ -16,13 +16,13 @@
   --color-line: #e7e9ec;
 
   --color-series-fact: #2f6fe4; /* факт — синий */
-  --color-series-forecast: #ef3124; /* прогноз — красный */
+  --color-series-forecast: #1763b8; /* прогноз — синий */
 
   --color-good: #1e9e5a;
   --color-good-soft: #e6f6ee;
   --color-warn: #e8a23d;
   --color-warn-soft: #fdf3e3;
-  --color-crit: #ef3124;
+  --color-crit: #d63d37;
   --color-crit-soft: #fdeae8;
 
   --font-sans:

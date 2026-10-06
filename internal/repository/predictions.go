@@ -8,7 +8,7 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // InsertPredictionBatch сохраняет прогноз одним батчем (общий calculated_at).

@@ -43,7 +43,7 @@ func Load() Config {
 		WebDir:           getenv("WEB_DIR", "web/dist"),
 		DataDir:          getenv("DATA_DIR", "data"),
 		JWTSecret:        getenv("JWT_SECRET", "dev-secret-change-me-please"),
-		AdminToken:       getenv("ADMIN_TOKEN", "alfa-admin"),
+		AdminToken:       getenv("ADMIN_TOKEN", "pulse-admin"),
 		AppEnv:           getenv("APP_ENV", "dev"),
 		TelegramBotToken: getenv("TELEGRAM_BOT_TOKEN", ""),
 		VAPIDPublicKey:   getenv("VAPID_PUBLIC_KEY", ""),

@@ -17,6 +17,7 @@ type Participant struct {
 	ID             uuid.UUID `json:"id"`
 	Phone          string    `json:"phone"`
 	AccountID      string    `json:"account_id"`
+	BankName       string    `json:"bank_name"`
 	Name           string    `json:"name"`
 	GroupType      string    `json:"group_type"` // A — контрольная, B — полный функционал
 	TelegramChatID *int64    `json:"telegram_chat_id,omitempty"`

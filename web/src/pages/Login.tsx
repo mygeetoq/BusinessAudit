@@ -1,5 +1,5 @@
 import { Activity, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api, ApiError, saveUser } from "../api/client";
 import type { Participant } from "../api/types";
@@ -13,6 +13,23 @@ export default function Login() {
   const [debugCode, setDebugCode] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [delivery, setDelivery] = useState<{ demo_mode: boolean; telegram_bot_configured: boolean; telegram_bot_username: string } | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const refresh = () => {
+      api<{ demo_mode: boolean; telegram_bot_configured: boolean; telegram_bot_username: string }>("/api/public-config")
+        .then((value) => {
+          if (!active) return;
+          setDelivery(value);
+          if (value.telegram_bot_configured && !value.telegram_bot_username) timer = setTimeout(refresh, 5000);
+        })
+        .catch(() => { if (active) setDelivery(null); });
+    };
+    refresh();
+    return () => { active = false; clearTimeout(timer); };
+  }, []);
 
   async function requestCode(e: React.FormEvent) {
     e.preventDefault();
@@ -42,7 +59,12 @@ export default function Login() {
         body: JSON.stringify({ phone, code }),
       });
       saveUser(resp.participant);
-      navigate("/", { replace: true });
+      let destination = "/";
+      try {
+        const account = await api<{ bank_name: string }>("/api/my/bank-account");
+        if (!account.bank_name) destination = "/bank";
+      } catch { /* вход успешен — страница счёта доступна через меню */ }
+      navigate(destination, { replace: true });
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Не удалось войти");
     } finally {
@@ -57,7 +79,7 @@ export default function Login() {
           <div className="relative flex size-16 items-center justify-center rounded-3xl bg-brand shadow-lg shadow-brand/25">
             <Activity className="pulse-dot size-8 text-white" strokeWidth={2.5} />
           </div>
-          <h1 className="mt-4 text-2xl font-bold">Альфа.Пульс</h1>
+          <h1 className="mt-4 text-2xl font-bold">Бизнес.Пульс</h1>
           <p className="mt-1 text-sm text-ink-2">
             Личный финансовый доктор вашего бизнеса
           </p>
@@ -68,7 +90,7 @@ export default function Login() {
             <form onSubmit={requestCode} className="flex flex-col gap-4">
               <div>
                 <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold">
-                  Телефон участника пилота
+                  Телефон пользователя
                 </label>
                 <input
                   id="phone"
@@ -87,8 +109,13 @@ export default function Login() {
                 {busy ? "Отправляем…" : "Получить код"}
               </button>
               <p className="text-center text-xs leading-relaxed text-ink-3">
-                Код придёт в Telegram-бот, если он привязан
+                {delivery?.demo_mode
+                  ? "В локальном демо новый номер зарегистрируется автоматически, а код появится на этой странице."
+                  : delivery?.telegram_bot_username
+                    ? "Для первого входа поделитесь своим контактом с ботом сервиса, затем запросите код."
+                    : "Доставка кодов пока не настроена."}
               </p>
+              {delivery?.telegram_bot_username && <a className="text-center text-xs text-brand underline" href={`https://t.me/${delivery.telegram_bot_username}`} target="_blank" rel="noreferrer">Открыть бота @{delivery.telegram_bot_username}</a>}
             </form>
           ) : (
             <form onSubmit={verify} className="flex flex-col gap-4">
@@ -131,7 +158,7 @@ export default function Login() {
 
         <div className="mt-6 text-center">
           <Link to="/admin" className="text-xs text-ink-3 hover:text-ink">
-            Админка пилота
+            Администрирование
           </Link>
         </div>
       </div>

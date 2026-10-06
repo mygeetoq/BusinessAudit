@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // AddDailyDelta накапливает агрегаты дня (UPSERT): при повторном импорте за ту же

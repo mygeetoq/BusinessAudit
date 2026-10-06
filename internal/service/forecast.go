@@ -10,9 +10,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/forecast"
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
+	"business-pulse/internal/forecast"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
 )
 
 const horizonDays = 14

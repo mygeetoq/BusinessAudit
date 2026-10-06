@@ -7,7 +7,7 @@ import { execSync } from "node:child_process";
 import { mkdirSync } from "node:fs";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:8080";
-const ADMIN = process.env.ADMIN_TOKEN ?? "alfa-admin";
+const ADMIN = process.env.ADMIN_TOKEN ?? "pulse-admin";
 const OUT = process.argv[2] ?? "e2e-shots";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 

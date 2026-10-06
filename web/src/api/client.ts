@@ -27,8 +27,11 @@ export async function api<T>(
   retried = false,
 ): Promise<T> {
   const res = await fetch(path, {
-    headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) },
     ...init,
+    headers: {
+      ...(init?.body instanceof FormData ? {} : { "Content-Type": "application/json" }),
+      ...(init?.headers ?? {}),
+    },
   });
 
   if (res.status === 401 && !path.startsWith("/api/auth/") && !retried) {

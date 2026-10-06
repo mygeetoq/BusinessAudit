@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // metric — метрика дня для тестов: выручка, число покупок, средний чек.

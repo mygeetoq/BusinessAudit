@@ -5,7 +5,7 @@ import (
 
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // Обнаружение кассового разрыва (ТЗ, п. 5): день i в горизонте прогноза,

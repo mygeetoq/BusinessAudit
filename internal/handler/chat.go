@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/service"
 )
 
 const (

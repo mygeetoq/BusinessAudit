@@ -1,4 +1,4 @@
-// Генератор PWA-иконок Альфа.Пульс: красный квадрат со скруглениями и белой
+// Генератор PWA-иконок Бизнес.Пульс: синий квадрат со скруглениями и белой
 // «кардиограммой». Только stdlib (image/png), чтобы не тянуть зависимости.
 package main
 
@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	brand = color.RGBA{R: 0xEF, G: 0x31, B: 0x24, A: 0xFF}
+	brand = color.RGBA{R: 0x17, G: 0x63, B: 0xB8, A: 0xFF}
 	white = color.RGBA{R: 0xFF, G: 0xFF, B: 0xFF, A: 0xFF}
 )
 

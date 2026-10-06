@@ -15,8 +15,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
 )
 
 // Коллектор транзакций (ТЗ, п. 5): источник (CSV или API эквайринга, см.
@@ -221,7 +221,7 @@ func synthesizeTime(date time.Time, i int) time.Time {
 	return time.Date(date.Year(), date.Month(), date.Day(), h, m, sec, 0, time.UTC)
 }
 
-// ImportParticipantsCSV: «phone,account_id,group_type[,name]».
+// ImportParticipantsCSV: «phone,account_id,group_type[,name[,bank_name]]».
 func (s *Service) ImportParticipantsCSV(ctx context.Context, r io.Reader) (*ImportReport, error) {
 	reader := csv.NewReader(io.LimitReader(r, maxCSVSize))
 	reader.FieldsPerRecord = -1
@@ -266,9 +266,13 @@ func (s *Service) ImportParticipantsCSV(ctx context.Context, r io.Reader) (*Impo
 		if len(rec) > 3 {
 			name = strings.TrimSpace(rec[3])
 		}
+		bankName := ""
+		if len(rec) > 4 {
+			bankName = strings.TrimSpace(rec[4])
+		}
 
 		if _, err := s.repo.UpsertParticipant(ctx, models.Participant{
-			Phone: phone, AccountID: accountID, GroupType: group, Name: name,
+			Phone: phone, AccountID: accountID, GroupType: group, Name: name, BankName: bankName,
 		}); err != nil {
 			report.addError(line, "не удалось сохранить участника: "+err.Error())
 			report.Skipped++

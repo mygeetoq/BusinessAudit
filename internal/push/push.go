@@ -10,7 +10,7 @@ import (
 
 	webpush "github.com/SherClockHolmes/webpush-go"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // ErrGone: endpoint подписки мёртв (браузер отписался) — подписку надо удалить.
@@ -55,7 +55,7 @@ func (s *Sender) Send(ctx context.Context, sub models.PushSubscription, p Payloa
 		VAPIDPublicKey:  s.pub,
 		VAPIDPrivateKey: s.priv,
 		TTL:             3600,
-		Subscriber:      "mailto:alfa-pulse@example.com",
+		Subscriber:      "mailto:business-pulse@example.com",
 		Urgency:         webpush.UrgencyHigh,
 	})
 	if err != nil {

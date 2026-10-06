@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
 )
 
 func TestComparePeriods(t *testing.T) {

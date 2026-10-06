@@ -1,4 +1,4 @@
-// Альфа.Пульс: основной сервер — HTTP API + SPA, Telegram-бот,
+// Бизнес.Пульс: основной сервер — HTTP API + SPA, Telegram-бот,
 // планировщик пересчёта прогнозов, уведомления.
 package main
 
@@ -14,14 +14,14 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/bot"
-	"alfa-pulse/internal/config"
-	"alfa-pulse/internal/db"
-	"alfa-pulse/internal/handler"
-	"alfa-pulse/internal/push"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/bot"
+	"business-pulse/internal/config"
+	"business-pulse/internal/db"
+	"business-pulse/internal/handler"
+	"business-pulse/internal/push"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 func main() {
@@ -81,15 +81,12 @@ func run(cfg config.Config, log *slog.Logger) error {
 		log.Warn("web push выключен: заполните VAPID_PUBLIC_KEY/VAPID_PRIVATE_KEY (make vapid)")
 	}
 
-	// Telegram-бот (опционален)
+	// Telegram-бот (опционален): подключается в фоне и повторяет попытки.
+	tgManager := bot.NewManager(repo, log)
 	var tgSender service.TelegramSender
-	tgBot, err := bot.New(cfg.TelegramBotToken, repo, log)
-	if err != nil {
-		log.Warn("telegram-бот не запустился, продолжаю без него", "err", err)
-	}
-	if tgBot != nil {
-		tgSender = tgBot
-		go tgBot.Run(ctx)
+	if cfg.TelegramBotToken != "" {
+		tgManager.Start(ctx, cfg.TelegramBotToken)
+		tgSender = tgManager
 	} else {
 		log.Info("telegram-бот выключен (TELEGRAM_BOT_TOKEN не задан)")
 	}
@@ -107,7 +104,7 @@ func run(cfg config.Config, log *slog.Logger) error {
 		Tokens:      auth.NewTokenManager(cfg.JWTSecret, rdb),
 		Push:        pushSender,
 		TG:          tgSender,
-		BotUsername: tgBot.Username(),
+		BotUsername: tgManager.Username,
 		RDB:         rdb,
 	})
 

@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 func (r *Repository) InsertRecommendation(ctx context.Context, pid uuid.UUID, ruleCode, message string) error {

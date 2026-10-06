@@ -10,8 +10,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/repository"
+	"business-pulse/internal/models"
+	"business-pulse/internal/repository"
 )
 
 // Расширенная аналитика «одним экраном» (как у банковских сервисов аналитики

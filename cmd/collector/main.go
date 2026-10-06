@@ -15,10 +15,10 @@ import (
 	"os"
 	"time"
 
-	"alfa-pulse/internal/config"
-	"alfa-pulse/internal/db"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/config"
+	"business-pulse/internal/db"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 func main() {

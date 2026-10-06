@@ -8,7 +8,7 @@ import (
 
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/auth"
+	"business-pulse/internal/auth"
 )
 
 // GET /api/report/monthly?month=2026-07 — детализированный отчёт за месяц (ТЗ V2, п. 1).
@@ -82,7 +82,7 @@ func (d Deps) monthlyReport(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	filename := fmt.Sprintf("alfa-pulse-report_%s.csv", from.Format("2006-01"))
+	filename := fmt.Sprintf("business-pulse-report_%s.csv", from.Format("2006-01"))
 	w.Header().Set("Content-Type", "text/csv; charset=utf-8")
 	w.Header().Set("Content-Disposition", `attachment; filename="`+filename+`"`)
 	_, _ = w.Write([]byte{0xEF, 0xBB, 0xBF}) // BOM для Excel

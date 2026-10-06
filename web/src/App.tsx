@@ -5,6 +5,7 @@ import Admin from "./pages/Admin";
 import Advice from "./pages/Advice";
 import Advisor from "./pages/Advisor";
 import Analytics from "./pages/Analytics";
+import BankAccount from "./pages/BankAccount";
 import Dashboard from "./pages/Dashboard";
 import Expenses from "./pages/Expenses";
 import Login from "./pages/Login";
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/" element={<Protected><Dashboard /></Protected>} />
       <Route path="/analytics" element={<Protected><Analytics /></Protected>} />
       <Route path="/expenses" element={<Protected><Expenses /></Protected>} />
+      <Route path="/bank" element={<Protected><BankAccount /></Protected>} />
       <Route path="/advice" element={<Protected><Advice /></Protected>} />
       <Route path="/advisor" element={<Protected><Advisor /></Protected>} />
       <Route path="*" element={<Navigate to="/" replace />} />

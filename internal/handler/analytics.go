@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"alfa-pulse/internal/auth"
+	"business-pulse/internal/auth"
 )
 
 const maxAnalyticsRangeDays = 400

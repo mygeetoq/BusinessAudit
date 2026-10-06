@@ -1,4 +1,4 @@
-// Генератор демо-данных Альфа.Пульс.
+// Генератор демо-данных Бизнес.Пульс.
 //
 // Создаёт в data/:
 //   - participants.csv        — 2 участника (B «Демо Кофе», A «Контроль»)
@@ -48,17 +48,43 @@ func main() {
 	rng := rand.New(rand.NewSource(42)) // детерминированные демо-данные
 	today := time.Now().UTC().Truncate(24 * time.Hour)
 
+	mainCSV := mainTransactions(rng, today)
+	crisisCSV := crisisTransactions(rng, today)
 	writeFile(outDir+"/participants.csv", participantsCSV())
-	writeFile(outDir+"/transactions.csv", mainTransactions(rng, today))
-	writeFile(outDir+"/transactions_crisis.csv", crisisTransactions(rng, today))
+	writeFile(outDir+"/transactions.csv", mainCSV)
+	writeFile(outDir+"/transactions_crisis.csv", crisisCSV)
 	writeFile(outDir+"/expenses.sql", expensesSQL(today))
-	writeFile(outDir+"/transactions_extra.csv", extraTransactions(rng, today))
+	extraCSV := extraTransactions(rng, today)
+	writeFile(outDir+"/transactions_extra.csv", extraCSV)
 	writeFile(outDir+"/expenses_extra.sql", expensesExtraSQL(today))
+	if err := os.MkdirAll(outDir+"/examples", 0o755); err != nil {
+		fatal(err)
+	}
+	writePersonalExample(outDir+"/examples/coffee_decline.csv", mainCSV, accountB)
+	writePersonalExample(outDir+"/examples/coffee_crisis.csv", crisisCSV, accountB)
+	writePersonalExample(outDir+"/examples/bakery_growth.csv", extraCSV, accBakery)
+	writePersonalExample(outDir+"/examples/barbershop_decline.csv", extraCSV, accBarber)
+	writePersonalExample(outDir+"/examples/foodtruck_growth.csv", extraCSV, accTruck)
 
 	fmt.Println("демо-данные созданы в", outDir+"/")
 	fmt.Println("  B: +79001234567 кофейня (жёлтый→кризис), +79011111111 пекарня (зелёный),")
 	fmt.Println("     +79022222222 барбершоп (жёлтый, разрыв), +79033333333 фудтрак (рост)")
 	fmt.Println("  A: +79007654321, +79044444444 (контрольная группа)")
+}
+
+// writePersonalExample убирает служебный account_id: личный импорт определяет
+// владельца операций по авторизованной сессии.
+func writePersonalExample(path, source, account string) {
+	var b strings.Builder
+	b.WriteString("date,amount,type\n")
+	for _, line := range strings.Split(source, "\n") {
+		prefix, rest, ok := strings.Cut(line, ",")
+		if ok && prefix == account {
+			b.WriteString(rest)
+			b.WriteByte('\n')
+		}
+	}
+	writeFile(path, b.String())
 }
 
 func participantsCSV() string {

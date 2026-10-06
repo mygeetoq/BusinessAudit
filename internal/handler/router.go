@@ -14,11 +14,11 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/redis/go-redis/v9"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/config"
-	"alfa-pulse/internal/push"
-	"alfa-pulse/internal/repository"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/config"
+	"business-pulse/internal/push"
+	"business-pulse/internal/repository"
+	"business-pulse/internal/service"
 )
 
 // Deps — зависимости HTTP-слоя (собираются в cmd/server).
@@ -32,12 +32,19 @@ type Deps struct {
 	Tokens      *auth.TokenManager
 	Push        *push.Sender
 	TG          service.TelegramSender // nil, если бот выключен
-	BotUsername string                 // для ссылки привязки t.me/<bot>
+	BotUsername func() string          // для ссылки привязки t.me/<bot>
 	RDB         *redis.Client          // лимиты чата-советника
 }
 
+func (d Deps) telegramBotUsername() string {
+	if d.BotUsername == nil {
+		return ""
+	}
+	return d.BotUsername()
+}
+
 var httpRequests = promauto.NewCounterVec(prometheus.CounterOpts{
-	Name: "alfa_pulse_http_requests_total",
+	Name: "business_pulse_http_requests_total",
 	Help: "HTTP-запросы по методу и классу статуса",
 }, []string{"method", "status_class"})
 
@@ -57,6 +64,13 @@ func NewRouter(d Deps) http.Handler {
 
 	r.Get("/healthz", func(w http.ResponseWriter, _ *http.Request) {
 		writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
+	})
+	r.Get("/api/public-config", func(w http.ResponseWriter, _ *http.Request) {
+		writeJSON(w, http.StatusOK, map[string]any{
+			"demo_mode":               d.Cfg.IsDev(),
+			"telegram_bot_configured": d.Cfg.TelegramBotToken != "",
+			"telegram_bot_username":   d.telegramBotUsername(),
+		})
 	})
 	// Технические метрики (в проде закрыть на уровне reverse-proxy).
 	r.Method(http.MethodGet, "/metrics", promhttp.Handler())
@@ -82,6 +96,9 @@ func NewRouter(d Deps) http.Handler {
 		r.Post("/api/push/subscribe", d.pushSubscribe)
 		// V2: операции, самостоятельные расходы, месячный отчёт
 		r.Get("/api/my/operations", d.operations)
+		r.Get("/api/my/bank-account", d.bankAccount)
+		r.Put("/api/my/bank-account", d.connectBankAccount)
+		r.Post("/api/my/bank-statement", d.importBankStatement)
 		r.Get("/api/my/expenses", d.myExpenses)
 		r.Post("/api/my/expenses/fixed", d.addFixedExpense)
 		r.Delete("/api/my/expenses/fixed", d.deleteFixedExpense)

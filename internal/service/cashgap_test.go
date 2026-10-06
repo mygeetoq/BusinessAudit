@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 func day(y int, m time.Month, dd int) time.Time {

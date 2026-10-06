@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 func (r *Repository) ListExpenses(ctx context.Context, pid uuid.UUID) ([]models.FixedExpense, error) {

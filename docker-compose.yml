@@ -1,4 +1,4 @@
-name: alfa-pulse
+name: business-pulse
 
 services:
   postgres:
@@ -50,7 +50,7 @@ services:
       WEB_DIR: /app/web/dist
       DATA_DIR: /app/data
       JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me-please}
-      ADMIN_TOKEN: ${ADMIN_TOKEN:-alfa-admin}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-pulse-admin}
       APP_ENV: ${APP_ENV:-dev}
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
       VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY:-}

@@ -7,7 +7,7 @@ import (
 
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/models"
 )
 
 // Правила рекомендаций (ТЗ, п. 5). Каждое правило — чистая функция от

@@ -1,6 +1,6 @@
-# Альфа.Пульс — команды разработки и демо
+# Бизнес.Пульс — команды разработки и демо
 -include .env
-ADMIN_TOKEN ?= alfa-admin
+ADMIN_TOKEN ?= pulse-admin
 BASE_URL    ?= http://localhost:8080
 
 .PHONY: up down build logs test test-web vapid demo crisis psql

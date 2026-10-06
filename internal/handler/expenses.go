@@ -8,8 +8,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	"alfa-pulse/internal/models"
-	"alfa-pulse/internal/service"
+	"business-pulse/internal/models"
+	"business-pulse/internal/service"
 )
 
 // Админ-CRUD фиксированных расходов: без них прогноз кассового разрыва

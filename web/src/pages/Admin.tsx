@@ -7,7 +7,7 @@ import { fmtMoney } from "../lib/format";
 
 const TOKEN_KEY = "ap_admin_token";
 
-/* Служебная страница организаторов пилота: доступ по X-Admin-Token. */
+/* Служебная страница администратора сервиса: доступ по X-Admin-Token. */
 export default function Admin() {
   const [token, setToken] = useState(localStorage.getItem(TOKEN_KEY) ?? "");
   const [authed, setAuthed] = useState(false);
@@ -89,7 +89,7 @@ export default function Admin() {
       <Link to="/login" className="mb-4 inline-flex items-center gap-1 text-xs text-ink-3 hover:text-ink">
         <ArrowLeft className="size-3.5" /> к входу
       </Link>
-      <h1 className="mb-4 text-xl font-bold">Админка пилота</h1>
+      <h1 className="mb-4 text-xl font-bold">Администрирование</h1>
 
       <div className="card mb-4 flex flex-col gap-3 p-4 sm:flex-row sm:items-center">
         <input

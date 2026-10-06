@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"alfa-pulse/internal/auth"
-	"alfa-pulse/internal/models"
+	"business-pulse/internal/auth"
+	"business-pulse/internal/models"
 )
 
 // GET /api/push/vapid-key — публичный VAPID-ключ для подписки в браузере.
