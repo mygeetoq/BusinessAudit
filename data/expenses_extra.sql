@@ -15,7 +15,7 @@ INSERT INTO fixed_expenses (participant_id, description, amount, due_day_of_mont
 SELECT id, 'Коммуналка', 40000, 25, 'utilities' FROM participants WHERE account_id = 'ACC-003'
 ON CONFLICT (participant_id, description) DO UPDATE SET amount = EXCLUDED.amount, due_day_of_month = EXCLUDED.due_day_of_month, category = EXCLUDED.category;
 INSERT INTO fixed_expenses (participant_id, description, amount, due_day_of_month, category)
-SELECT id, 'Аренда салона', 200000, 9, 'rent' FROM participants WHERE account_id = 'ACC-004'
+SELECT id, 'Аренда салона', 200000, 10, 'rent' FROM participants WHERE account_id = 'ACC-004'
 ON CONFLICT (participant_id, description) DO UPDATE SET amount = EXCLUDED.amount, due_day_of_month = EXCLUDED.due_day_of_month, category = EXCLUDED.category;
 INSERT INTO fixed_expenses (participant_id, description, amount, due_day_of_month, category)
 SELECT id, 'Зарплаты мастеров', 220000, 10, 'salary' FROM participants WHERE account_id = 'ACC-004'
