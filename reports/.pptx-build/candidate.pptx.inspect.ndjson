@@ -1,0 +1,127 @@
+{"kind":"deck","id":"pr/uj7dhj","name":"Deck"}
+{"kind":"layout","layoutId":"a15b0bb9-3599-4646-ac86-8c1569d0e3e0","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"205454c6-b598-4aba-9d21-0f2c2351dbb1","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/ycnq9p","slide":1,"title":"Бизнес.Пульс","textShapes":7}
+{"kind":"shape","id":"sh/294r61sn","slide":1,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/pcva1wbe","slide":1,"text":"Бизнес.Пульс","textPreview":"Бизнес.Пульс","textChars":12,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/obm98rat","slide":1,"text":"Учебный проект по управлению программными проектами","textPreview":"Учебный проект по управлению программными проектами","textChars":51,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/bexs36tk","slide":1,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/qd4ra1sz","slide":1,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/dgfa5gba","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"textbox","id":"sh/cf69cbap","slide":1,"text":"Разработка системы мониторинга и прогнозирования денежных потоков малого бизнеса","textPreview":"Разработка системы мониторинга и прогнозирования денежных потоков малого бизнеса","textChars":80,"textLines":1,"bbox":[64,190,620,150]}
+{"kind":"textbox","id":"sh/z2xs7qtg","slide":1,"text":"От выписки к понятной картине бизнеса: динамика, прогноз и советы.","textPreview":"От выписки к понятной картине бизнеса: динамика, прогноз и советы.","textChars":66,"textLines":1,"bbox":[64,365,585,100]}
+{"kind":"shape","id":"sh/yhorelsv","slide":1,"bbox":[64,502,465,68]}
+{"kind":"textbox","id":"sh/czmd4j6l","slide":1,"text":"Команда из трёх студентов · 150 часов","textPreview":"Команда из трёх студентов · 150 часов","textChars":37,"textLines":1,"bbox":[83,514,430,44]}
+{"kind":"image","id":"im/epk3ipgz","slide":1,"name":"","alt":"screen_dashboard_desktop.png","bbox":[695,180,520,370]}
+{"kind":"notes","id":"nt/ycnq9p","slide":1,"text":"Источник: локальный проект Бизнес.Пульс и скриншот приложения от 07.10.2026."}
+{"kind":"slide","id":"sl/tquwbi","slide":2,"title":"Задача и границы продукта","textShapes":11}
+{"kind":"shape","id":"sh/ozu1wrmt","slide":2,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/3yl0nm58","slide":2,"text":"Задача и границы продукта","textPreview":"Задача и границы продукта","textChars":25,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/2dszuh4n","slide":2,"text":"Для владельца малого бизнеса","textPreview":"Для владельца малого бизнеса","textChars":28,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/d43itwna","slide":2,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/c3u10bmp","slide":2,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/b2l0r654","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"shape","id":"sh/q1cjy14z","slide":2,"bbox":[64,184,354,342]}
+{"kind":"shape","id":"sh/t8jihcn6","slide":2,"bbox":[64,184,7,342]}
+{"kind":"textbox","id":"sh/s7aho76l","slide":2,"text":"Проблема","textPreview":"Проблема","textChars":8,"textLines":1,"bbox":[89,202,304,43]}
+{"kind":"textbox","id":"sh/upkba9s7","slide":2,"text":"Операции и расходы приходится сводить вручную. Падение поступлений и риск кассового разрыва замечают поздно.","textPreview":"Операции и расходы приходится сводить вручную. Падение поступлений и риск кассового разрыва замечают поздно.","textChars":108,"textLines":1,"bbox":[89,251,304,262]}
+{"kind":"shape","id":"sh/vqtc3ets","slide":2,"bbox":[463,184,354,342]}
+{"kind":"shape","id":"sh/wr2tcjad","slide":2,"bbox":[463,184,7,342]}
+{"kind":"textbox","id":"sh/hsbu5oby","slide":2,"text":"Решение","textPreview":"Решение","textChars":7,"textLines":1,"bbox":[488,202,304,43]}
+{"kind":"textbox","id":"sh/itkbetsj","slide":2,"text":"Загрузить CSV, увидеть метрики и динамику, получить прогноз на 14 дней и рекомендации.","textPreview":"Загрузить CSV, увидеть метрики и динамику, получить прогноз на 14 дней и рекомендации.","textChars":86,"textLines":1,"bbox":[488,251,304,262]}
+{"kind":"shape","id":"sh/jutc7yt4","slide":2,"bbox":[862,184,354,342]}
+{"kind":"shape","id":"sh/4v2tgjap","slide":2,"bbox":[862,184,7,342]}
+{"kind":"textbox","id":"sh/5wvu9obu","slide":2,"text":"Граница MVP","textPreview":"Граница MVP","textChars":11,"textLines":1,"bbox":[887,202,304,43]}
+{"kind":"textbox","id":"sh/6h4bitsf","slide":2,"text":"Номер счёта хранится как метаданные. Для прямого банковского API нужны авторизация и адаптер конкретного банка.","textPreview":"Номер счёта хранится как метаданные. Для прямого банковского API нужны авторизация и адаптер конкретного банка.","textChars":111,"textLines":1,"bbox":[887,251,304,262]}
+{"kind":"textbox","id":"sh/ridcbyt0","slide":2,"text":"Система работает с данными счёта любого банка через единый CSV-формат.","textPreview":"Система работает с данными счёта любого банка через единый CSV-формат.","textChars":70,"textLines":1,"bbox":[65,558,1100,58]}
+{"kind":"notes","id":"nt/tquwbi","slide":2,"text":""}
+{"kind":"slide","id":"sl/s6axve","slide":3,"title":"Как работает система","textShapes":16}
+{"kind":"shape","id":"sh/1c36p0ry","slide":3,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/epcnul8n","slide":3,"text":"Как работает система","textPreview":"Как работает система","textChars":20,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/fqlonq9s","slide":3,"text":"Путь данных от файла к решению","textPreview":"Путь данных от файла к решению","textChars":30,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/snu5svqh","slide":3,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/do36l0r2","slide":3,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/qlcnql8b","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"shape","id":"sh/rmlojq9w","slide":3,"bbox":[65,209,278,260]}
+{"kind":"shape","id":"sh/cjep4fql","slide":3,"bbox":[65,209,7,260]}
+{"kind":"textbox","id":"sh/xk76xkr6","slide":3,"text":"1 · Данные","textPreview":"1 · Данные","textChars":10,"textLines":1,"bbox":[90,227,228,43]}
+{"kind":"textbox","id":"sh/p0ja14fm","slide":3,"text":"Личный CSV / админский импорт","textPreview":"Личный CSV / админский импорт","textChars":29,"textLines":1,"bbox":[90,276,228,180]}
+{"kind":"textbox","id":"sh/ofa98zy1","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[345,300,30,40]}
+{"kind":"shape","id":"sh/ne1szuxg","slide":3,"bbox":[369,209,278,260]}
+{"kind":"shape","id":"sh/2dsr69gv","slide":3,"bbox":[369,209,7,260]}
+{"kind":"textbox","id":"sh/1cjax4fq","slide":3,"text":"2 · Сервер","textPreview":"2 · Сервер","textChars":10,"textLines":1,"bbox":[394,227,228,43]}
+{"kind":"textbox","id":"sh/gba94zy5","slide":3,"text":"Go API · валидация · PostgreSQL","textPreview":"Go API · валидация · PostgreSQL","textChars":31,"textLines":1,"bbox":[394,276,228,180]}
+{"kind":"textbox","id":"sh/fa18vuhk","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[649,300,30,40]}
+{"kind":"shape","id":"sh/e98r2pgz","slide":3,"bbox":[673,209,278,260]}
+{"kind":"shape","id":"sh/l83a9ofu","slide":3,"bbox":[673,209,7,260]}
+{"kind":"textbox","id":"sh/k7u9gjy9","slide":3,"text":"3 · Аналитика","textPreview":"3 · Аналитика","textChars":13,"textLines":1,"bbox":[698,227,228,43]}
+{"kind":"textbox","id":"sh/kb2tc76l","slide":3,"text":"Метрики · индекс · прогноз","textPreview":"Метрики · индекс · прогноз","textChars":26,"textLines":1,"bbox":[698,276,228,180]}
+{"kind":"textbox","id":"sh/5cbu5sn6","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[953,300,30,40]}
+{"kind":"shape","id":"sh/i9kbaxof","slide":3,"bbox":[977,209,278,260]}
+{"kind":"shape","id":"sh/jatc3250","slide":3,"bbox":[977,209,7,260]}
+{"kind":"textbox","id":"sh/w72t8n69","slide":3,"text":"4 · Интерфейс","textPreview":"4 · Интерфейс","textChars":13,"textLines":1,"bbox":[1002,227,228,43]}
+{"kind":"textbox","id":"sh/x8bu1snu","slide":3,"text":"Дашборд · советы · отчёт","textPreview":"Дашборд · советы · отчёт","textChars":24,"textLines":1,"bbox":[1002,276,228,180]}
+{"kind":"textbox","id":"sh/alkb6doj","slide":3,"text":"Дополнительно: Python/Prophet с резервным Go-прогнозом, Telegram-уведомления и опциональный LLM API.","textPreview":"Дополнительно: Python/Prophet с резервным Go-прогнозом, Telegram-уведомления и опциональный LLM API.","textChars":100,"textLines":1,"bbox":[65,520,1120,78]}
+{"kind":"notes","id":"nt/s6axve","slide":3,"text":""}
+{"kind":"slide","id":"sl/qiiv8e","slide":4,"title":"Данные и ежедневный обзор","textShapes":6}
+{"kind":"shape","id":"sh/gfutgzu5","slide":4,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/velsnedk","slide":4,"text":"Данные и ежедневный обзор","textPreview":"Данные и ежедневный обзор","textChars":25,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/udcbe9cz","slide":4,"text":"Скриншоты работающего локального стенда","textPreview":"Скриншоты работающего локального стенда","textChars":39,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/9cjal4ve","slide":4,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/8batczut","slide":4,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/7a1sjud8","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"textbox","id":"sh/kna98fux","slide":4,"text":"Загрузка операций и данные счёта","textPreview":"Загрузка операций и данные счёта","textChars":32,"textLines":1,"bbox":[62,594,530,35]}
+{"kind":"textbox","id":"sh/y1c3mtcv","slide":4,"text":"Состояние бизнеса и прогноз","textPreview":"Состояние бизнеса и прогноз","textChars":27,"textLines":1,"bbox":[657,594,530,35]}
+{"kind":"image","id":"im/b6tg7els","slide":4,"name":"","alt":"screen_bank_desktop.png","bbox":[58,179,562,407]}
+{"kind":"image","id":"im/oj2xwz21","slide":4,"name":"","alt":"screen_dashboard_desktop.png","bbox":[653,179,562,407]}
+{"kind":"notes","id":"nt/qiiv8e","slide":4,"text":"Оба снимка получены с локального стенда 07.10.2026."}
+{"kind":"slide","id":"sl/qa33n6","slide":5,"title":"Аналитика и рекомендации","textShapes":6}
+{"kind":"shape","id":"sh/mdwridkj","slide":5,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/9gnqts3u","slide":5,"text":"Аналитика и рекомендации","textPreview":"Аналитика и рекомендации","textChars":24,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/8fe9kn29","slide":5,"text":"Расчёты отделены от генеративного текста","textPreview":"Расчёты отделены от генеративного текста","textChars":40,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/vi58vil0","slide":5,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/ahwrmdkf","slide":5,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/xk7axs36","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"textbox","id":"sh/ilgrqxkb","slide":5,"text":"Графики, операции, экспорт","textPreview":"Графики, операции, экспорт","textChars":26,"textLines":1,"bbox":[63,580,520,38]}
+{"kind":"textbox","id":"sh/crex0vix","slide":5,"text":"Правила; AI при настроенном API","textPreview":"Правила; AI при настроенном API","textChars":31,"textLines":1,"bbox":[660,580,540,38]}
+{"kind":"image","id":"im/dgf69onu","slide":5,"name":"","alt":"screen_analytics_desktop.png","bbox":[56,182,563,385]}
+{"kind":"image","id":"im/6hknmpoz","slide":5,"name":"","alt":"screen_advice_desktop.png","bbox":[657,182,562,385]}
+{"kind":"notes","id":"nt/qa33n6","slide":5,"text":"AI-советы требуют проверки человеком; снимки сделаны 07.10.2026."}
+{"kind":"slide","id":"sl/ptgddq","slide":6,"title":"Команда и календарный план","textShapes":11}
+{"kind":"shape","id":"sh/yl83y1sz","slide":6,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/lozmtgrq","slide":6,"text":"Команда и календарный план","textPreview":"Команда и календарный план","textChars":26,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/knql0ba5","slide":6,"text":"Роли равноценны по общей нагрузке","textPreview":"Роли равноценны по общей нагрузке","textChars":33,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/7ah4vq9w","slide":6,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/69832lsb","slide":6,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/tczmxgrm","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"shape","id":"sh/8bql4ba1","slide":6,"bbox":[64,184,354,296]}
+{"kind":"shape","id":"sh/nexkjmtc","slide":6,"bbox":[64,184,7,296]}
+{"kind":"textbox","id":"sh/mt43qhsr","slide":6,"text":"Студент 1 · 50 ч","textPreview":"Студент 1 · 50 ч","textChars":16,"textLines":1,"bbox":[89,202,304,43]}
+{"kind":"textbox","id":"sh/sn2tk7y1","slide":6,"text":"Backend: данные, миграции, CSV, личный импорт. QA импорта и API — 8 ч.","textPreview":"Backend: данные, миграции, CSV, личный импорт. QA импорта и API — 8 ч.","textChars":70,"textLines":1,"bbox":[89,251,304,216]}
+{"kind":"shape","id":"sh/tovutczm","slide":6,"bbox":[463,184,354,296]}
+{"kind":"shape","id":"sh/6lkbixgv","slide":6,"bbox":[463,184,7,296]}
+{"kind":"textbox","id":"sh/rmtcr2hg","slide":6,"text":"Студент 2 · 50 ч","textPreview":"Студент 2 · 50 ч","textChars":16,"textLines":1,"bbox":[488,202,304,43]}
+{"kind":"textbox","id":"sh/gbmto7yx","slide":6,"text":"Backend: метрики, прогноз, LLM и Telegram. QA расчётов и API — 8 ч.","textPreview":"Backend: метрики, прогноз, LLM и Telegram. QA расчётов и API — 8 ч.","textChars":67,"textLines":1,"bbox":[488,251,304,216]}
+{"kind":"shape","id":"sh/1cvuxczi","slide":6,"bbox":[862,184,354,296]}
+{"kind":"shape","id":"sh/ep4bmhg7","slide":6,"bbox":[862,184,7,296]}
+{"kind":"textbox","id":"sh/fadcv2hs","slide":6,"text":"Студент 3 · 50 ч","textPreview":"Студент 3 · 50 ч","textChars":16,"textLines":1,"bbox":[887,202,304,43]}
+{"kind":"textbox","id":"sh/wfitcnyt","slide":6,"text":"Frontend: экраны, навигация, UI QA, инструкция и презентация.","textPreview":"Frontend: экраны, навигация, UI QA, инструкция и презентация.","textChars":61,"textLines":1,"bbox":[887,251,304,216]}
+{"kind":"textbox","id":"sh/xgbulsze","slide":6,"text":"01–04.09  требования   →   07–18.09  реализация   →   21–25.09  интеграция   →   28–30.09  QA и сдача","textPreview":"01–04.09  требования   →   07–18.09  реализация   →   21–25.09  интеграция   →   28–30.09  QA и сдача","textChars":101,"textLines":1,"bbox":[65,540,1140,84]}
+{"kind":"notes","id":"nt/ptgddq","slide":6,"text":""}
+{"kind":"slide","id":"sl/64ubba","slide":7,"title":"Что готово и что проверено","textShapes":9}
+{"kind":"shape","id":"sh/yt8j2do3","slide":7,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/lwz2xs7u","slide":7,"text":"Что готово и что проверено","textPreview":"Что готово и что проверено","textChars":26,"textLines":1,"bbox":[64,40,1140,72]}
+{"kind":"textbox","id":"sh/kvq14n69","slide":7,"text":"Результат учебного MVP","textPreview":"Результат учебного MVP","textChars":22,"textLines":1,"bbox":[66,109,1120,44]}
+{"kind":"shape","id":"sh/bqx0ryps","slide":7,"bbox":[64,667,1152,1]}
+{"kind":"textbox","id":"sh/apojyto7","slide":7,"text":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textPreview":"Бизнес.Пульс  ·  учебный проект  ·  сентябрь 2026","textChars":49,"textLines":1,"bbox":[64,675,900,25]}
+{"kind":"textbox","id":"sh/xsf2t87i","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1164,673,50,28]}
+{"kind":"shape","id":"sh/cr61036d","slide":7,"bbox":[64,180,550,385]}
+{"kind":"shape","id":"sh/vm1k32pw","slide":7,"bbox":[64,180,7,385]}
+{"kind":"textbox","id":"sh/ulsjaxob","slide":7,"text":"Доступно в проекте","textPreview":"Доступно в проекте","textChars":18,"textLines":1,"bbox":[89,198,500,43]}
+{"kind":"textbox","id":"sh/cje58rih","slide":7,"text":"Вход, импорт CSV, расходы, аналитика, индекс состояния, прогноз, советы, Telegram-бот, опциональный LLM-клиент, тестовые сценарии.","textPreview":"Вход, импорт CSV, расходы, аналитика, индекс состояния, прогноз, советы, Telegram-бот, опциональный LLM-клиент, тестовые сценарии.","textChars":130,"textLines":1,"bbox":[89,247,500,305]}
+{"kind":"shape","id":"sh/dknm1wz2","slide":7,"bbox":[660,180,555,385]}
+{"kind":"shape","id":"sh/qhwn6h0r","slide":7,"bbox":[660,180,7,385]}
+{"kind":"textbox","id":"sh/bi54zmhw","slide":7,"text":"Ограничения и развитие","textPreview":"Ограничения и развитие","textChars":22,"textLines":1,"bbox":[685,198,505,43]}
+{"kind":"textbox","id":"sh/ofu547il","slide":7,"text":"Прямой API банка не подключён. Точность прогноза на реальных данных не валидирована. Следующий шаг — авторизованный адаптер банка и пользовательская проверка.","textPreview":"Прямой API банка не подключён. Точность прогноза на реальных данных не валидирована. Следующий шаг — авторизованный адаптер банка и польз...","textChars":158,"textLines":1,"bbox":[685,247,505,305]}
+{"kind":"textbox","id":"sh/pgnmxcz6","slide":7,"text":"Проверка: Docker Compose, сборка веб-приложения и автоматические тесты серверной части.","textPreview":"Проверка: Docker Compose, сборка веб-приложения и автоматические тесты серверной части.","textChars":87,"textLines":1,"bbox":[65,584,1140,54]}
+{"kind":"notes","id":"nt/64ubba","slide":7,"text":""}
